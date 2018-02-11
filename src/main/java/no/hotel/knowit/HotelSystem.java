@@ -4,8 +4,16 @@ import java.util.HashMap;
 
 public class HotelSystem {
 
+    private static HotelSystem hotelSystemSingleton;
+
     private HashMap<Integer, HotelRoom> rooms;
 
+
+    public static HotelSystem getHotelSystem () {
+        if (hotelSystemSingleton == null)
+            hotelSystemSingleton = new HotelSystem();
+        return hotelSystemSingleton;
+    }
 
     public HotelSystem () {
         rooms = new HashMap<>();
