@@ -72,11 +72,11 @@ public class Client {
         boolean confirmationScreen = true;
         while (confirmationScreen) {
             String confirmation = reader.getInput();
-            if (confirmation == "n") {
+            if (confirmation.equals("n")) {
                 System.out.println("The registration was canceled.");
                 confirmationScreen = false;
             }
-            else if (confirmation == "y") {
+            else if (confirmation.equals("y")) {
                 hotelSystem.registerRoom(room);
                 System.out.println("The room has been added to the system.");
                 confirmationScreen = false;
