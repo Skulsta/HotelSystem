@@ -21,4 +21,8 @@ public class UserInput {
         String inputLine = reader.nextLine();
         return inputLine;
     }
+
+    public int getIntegerInput () {
+        return reader.nextInt();
+    }
 }

@@ -32,7 +32,7 @@ public class HotelSystem {
     public void createRoom (int numberOfBeds, int price, String roomType) {
         HotelRoom room = new HotelRoom(rooms.size()+1, numberOfBeds, price, roomType);
 
-        registerRoom(room);
+        // registerRoom(room);
     }
 
 
