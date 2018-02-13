@@ -42,8 +42,11 @@ public class HotelSystem {
 
 
     public void printRooms () {
+        if (rooms.size() == 0)
+            System.out.println("There are no rooms in the system");
         for (int i = 1; i <= rooms.size(); i++) {
-            System.out.println(rooms.get(i));
+            System.out.println(i + ".");
+            System.out.println(rooms.get(i) + "\n");
         }
     }
 

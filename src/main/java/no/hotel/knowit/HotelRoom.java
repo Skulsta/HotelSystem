@@ -50,4 +50,10 @@ public class HotelRoom {
     public int getNumberOfBeds () {
         return numberOfBeds;
     }
+
+
+    @Override
+    public String toString() {
+        return "Room ID: " + roomID + ", Beds: " + numberOfBeds + ", Price: " + price + "\nRoom Type: " + roomType;
+    }
 }

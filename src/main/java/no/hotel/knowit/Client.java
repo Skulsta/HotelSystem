@@ -30,6 +30,9 @@ public class Client {
             if (userInput.equals("register")) {
                 createRoom();
             }
+
+            if (userInput.equals("rooms"))
+                hotelSystem.printRooms();
         }
 
     }
@@ -64,8 +67,7 @@ public class Client {
 
         HotelRoom room = new HotelRoom(roomID, numberOfBeds, price, roomType);
 
-        System.out.println("Room ID: " + roomID + ", beds: " + numberOfBeds + ", price: " + price);
-        System.out.println("Type of room: " + roomType);
+        System.out.println(room);
 
         System.out.println("\nType 'y' to confirm, or 'n' to cancel");
 
@@ -101,7 +103,7 @@ public class Client {
                 System.out.println("Type the corresponding number");
                 break;
         }
-        throw new IllegalArgumentException("Type the number corresponding to the room type");
+        return chooseRoomType();
     }
 
 
