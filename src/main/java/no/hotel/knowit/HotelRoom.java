@@ -17,6 +17,16 @@ public class HotelRoom {
     }
 
 
+    public HotelRoom(String encodedRoom) {
+        String[] parts = encodedRoom.split("\t");
+
+        this.roomID = Integer.parseInt(parts[0]);
+        this.numberOfBeds = Integer.parseInt(parts[1]);
+        this.price = Integer.parseInt(parts[2]);
+        this.roomType = parts[3];
+    }
+
+
     public void setRoomType (String roomType) {
         String[] roomTypes = {"Bryllupssuite", "Businessuite", "Kvalitetsrom", "Lavprisrom"};
 
@@ -55,5 +65,16 @@ public class HotelRoom {
     @Override
     public String toString() {
         return "Room ID: " + roomID + ", Beds: " + numberOfBeds + ", Price: " + price + "\nRoom Type: " + roomType;
+    }
+
+    public String encode() {
+        String encoded = "";
+
+        encoded += roomID + "\t";
+        encoded += numberOfBeds + "\t";
+        encoded += price + "\t";
+        encoded += roomType;
+
+        return encoded;
     }
 }

@@ -1,5 +1,6 @@
 package no.hotel.knowit;
 
+import java.io.IOException;
 import java.util.HashMap;
 
 public class HotelSystem {
@@ -9,9 +10,10 @@ public class HotelSystem {
     private HashMap<Integer, HotelRoom> rooms;
 
 
-    public static HotelSystem getHotelSystem () {
-        if (hotelSystemSingleton == null)
+    public static HotelSystem getHotelSystem() {
+        if (hotelSystemSingleton == null) {
             hotelSystemSingleton = new HotelSystem();
+        }
         return hotelSystemSingleton;
     }
 
