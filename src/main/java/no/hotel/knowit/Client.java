@@ -1,17 +1,21 @@
 package no.hotel.knowit;
 
+import java.io.IOException;
+
 public class Client {
 
     private HotelSystem hotelSystem;
+    private RoomDatabase roomDatabase;
     private UserInput reader;
 
 
-    public Client () {
+    public Client () throws IOException {
         hotelSystem = HotelSystem.getHotelSystem();
+        roomDatabase = RoomDatabase.getInstance();
         reader = new UserInput();
     }
 
-    public void start () {
+    public void start () throws IOException {
         printWelcome();
         printHelp();
 
@@ -32,7 +36,9 @@ public class Client {
             }
 
             if (userInput.equals("rooms"))
-                hotelSystem.printRooms();
+                // hotelSystem.printRooms();
+                roomDatabase.loadDatabase();
+                roomDatabase.listRooms();
         }
 
     }
@@ -53,7 +59,7 @@ public class Client {
     }
 
 
-    public void createRoom () {
+    public void createRoom () throws IOException {
         int roomID = hotelSystem.getRooms().size() + 1;
 
         System.out.println("Number of beds: ");
@@ -80,6 +86,8 @@ public class Client {
             }
             else if (confirmation.equals("y")) {
                 hotelSystem.registerRoom(room);
+                roomDatabase.addRoom(room);
+                roomDatabase.saveDatabase();
                 System.out.println("The room has been added to the system.");
                 confirmationScreen = false;
             }
@@ -107,7 +115,7 @@ public class Client {
     }
 
 
-    public static void main (String[] args) {
+    public static void main (String[] args) throws IOException {
         Client client = new Client();
         client.start();
     }
